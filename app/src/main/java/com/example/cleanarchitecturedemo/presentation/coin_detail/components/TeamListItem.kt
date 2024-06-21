@@ -9,6 +9,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import com.example.cleanarchitecturedemo.data.remote.dto.TeamMember
 import androidx.compose.ui.unit.dp
 
@@ -17,7 +18,8 @@ fun TeamListItem(teamMember: TeamMember, modifier: Modifier) {
     Column(modifier = modifier, verticalArrangement = Arrangement.Center) {
         Text(
             text = teamMember.name,
-            style = MaterialTheme.typography.headlineSmall
+            style = MaterialTheme.typography.bodyLarge,
+            fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.height(4.dp))
         Text(

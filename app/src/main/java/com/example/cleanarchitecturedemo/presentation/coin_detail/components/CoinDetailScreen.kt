@@ -12,7 +12,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,6 +25,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.cleanarchitecturedemo.data.remote.dto.TeamMember
 import com.example.cleanarchitecturedemo.presentation.coin_detail.CoinDetailViewModel
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -43,7 +46,7 @@ fun CoinDetailScreen(viewModel: CoinDetailViewModel = hiltViewModel()) {
                     ) {
                         Text(
                             text = "${coin.rank}. ${coin.name} (${coin.symbol})",
-                            style = MaterialTheme.typography.headlineMedium,
+                            style = MaterialTheme.typography.headlineLarge,
                             modifier = Modifier.weight(8f)
                         )
                         Text(
@@ -55,27 +58,34 @@ fun CoinDetailScreen(viewModel: CoinDetailViewModel = hiltViewModel()) {
                                 .align(Alignment.CenterVertically)
                                 .weight(2f)
                         )
-                        Spacer(modifier = Modifier.height(15.dp))
-                        Text(
-                            text = coin.description,
-                            style = MaterialTheme.typography.bodySmall
-                        )
-                        Spacer(modifier = Modifier.height(15.dp))
-                        Text(
-                            text = "Tags",
-                            modifier = Modifier.height(15.dp)
-                        )
-                        Spacer(modifier = Modifier.height(15.dp))
-                        FlowRow(modifier = Modifier.fillMaxWidth()) {
-                            coin.tags.forEach { tag -> CoinTag(tag = tag) }
-                        }
-                        Spacer(modifier = Modifier.height(15.dp))
-                        Text(
-                            text = "Team Members",
-                            modifier = Modifier.height(15.dp)
-                        )
-                        Spacer(modifier = Modifier.height(15.dp))
                     }
+                    Spacer(modifier = Modifier.height(15.dp))
+                    Text(
+                        text = coin.description,
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                    Spacer(modifier = Modifier.height(15.dp))
+                    Text(
+                        text = "Tags",
+                        style = MaterialTheme.typography.headlineSmall
+                    )
+                    Spacer(modifier = Modifier.height(15.dp))
+                    FlowRow(modifier = Modifier.fillMaxWidth()) {
+                        coin.tags.forEach { tag -> CoinTag(tag = tag) }
+                    }
+                    Spacer(modifier = Modifier.height(15.dp))
+                    Text(
+                        text = "Team Members",
+                        style = MaterialTheme.typography.headlineSmall
+                    )
+                    Spacer(modifier = Modifier.height(15.dp))
+                }
+                items(items = coin.team) { teamMember ->
+                    TeamListItem(
+                        teamMember = teamMember,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                    Divider(modifier = Modifier.padding(vertical = 10.dp))
                 }
             }
         }
