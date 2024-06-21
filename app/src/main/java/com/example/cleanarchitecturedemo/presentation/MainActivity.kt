@@ -14,8 +14,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.cleanarchitecturedemo.presentation.Screen
-import com.example.cleanarchitecturedemo.presentation.coin_detail.components.CoinDetailScreen
-import com.example.cleanarchitecturedemo.presentation.coin_list.components.CoinListScreen
+import com.example.cleanarchitecturedemo.presentation.coin_detail.CoinDetailScreen
+import com.example.cleanarchitecturedemo.presentation.coin_list.CoinListScreen
 import com.example.cleanarchitecturedemo.ui.theme.CleanArchitectureDemoTheme
 import dagger.hilt.android.AndroidEntryPoint
 

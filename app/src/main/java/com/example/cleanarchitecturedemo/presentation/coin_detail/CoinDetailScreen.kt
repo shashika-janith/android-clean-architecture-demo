@@ -1,4 +1,4 @@
-package com.example.cleanarchitecturedemo.presentation.coin_detail.components
+package com.example.cleanarchitecturedemo.presentation.coin_detail
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -15,6 +15,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,8 +26,8 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.cleanarchitecturedemo.data.remote.dto.TeamMember
-import com.example.cleanarchitecturedemo.presentation.coin_detail.CoinDetailViewModel
+import com.example.cleanarchitecturedemo.presentation.coin_detail.components.CoinTag
+import com.example.cleanarchitecturedemo.presentation.coin_detail.components.TeamListItem
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -85,7 +86,7 @@ fun CoinDetailScreen(viewModel: CoinDetailViewModel = hiltViewModel()) {
                         teamMember = teamMember,
                         modifier = Modifier.fillMaxWidth()
                     )
-                    Divider(modifier = Modifier.padding(vertical = 10.dp))
+                    HorizontalDivider(modifier = Modifier.padding(vertical = 10.dp))
                 }
             }
         }
